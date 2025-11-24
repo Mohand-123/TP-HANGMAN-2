@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Fin de partie</title>
+</head>
+<body>
+    <h1>🏁 Fin de partie</h1>
+
+    <!-- Résultat -->
+    {{if .IsDraw}}
+        <p class="message">Match nul 🤝</p>
+    {{else if .Winner}}
+        <p class="message">{{.Message}}</p>
+    {{else}}
+        <p class="message">La partie est terminée.</p>
+    {{end}}
+
+    <!-- Grille finale -->
+    <table>
+        {{range .Grid}}
+        <tr>
+            {{range .}}
+            <td><div class="{{.}}"></div></td>
+            {{end}}
+        </tr>
+        {{end}}
+    </table>
+
+    <!-- Actions -->
+    <div class="actions">
+        <form method="GET" action="/reset">
+            <button type="submit">🔄 Rejouer</button>
+        </form>
+        <form method="GET" action="/game/scoreboard">
+            <button type="submit">📊 Voir le scoreboard</button>
+        </form>
+        <form method="GET" action="/">
+            <button type="submit">🏠 Accueil</button>
+        </form>
+    </div>
+</body>
+</html>

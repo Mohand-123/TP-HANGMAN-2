@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Accueil Power'4 Web</title>
+</head>
+<body>
+    <h1>🎮 Bienvenue sur Power'4 Web</h1>
+    <p>Un jeu de Puissance 4 multijoueur local en Go.</p>
+    <h2>Règles :</h2>
+    <ul>
+        <li>Deux joueurs s'affrontent avec des jetons rouges et jaunes.</li>
+        <li>Un jeton tombe toujours en bas de la colonne choisie.</li>
+        <li>Le premier à aligner 4 jetons gagne.</li>
+        <li>Si la grille est pleine sans vainqueur → égalité.</li>
+    </ul>
+    <form method="GET" action="/game/init">
+        <button type="submit">Commencer une partie</button>
+    </form>
+</body>
+</html>

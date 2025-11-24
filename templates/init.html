@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Initialisation</title>
+</head>
+<body>
+    <h1>⚙️ Initialisation des joueurs</h1>
+    <form method="POST" action="/game/init/traitement">
+        <label>Joueur 1 :</label>
+        <input type="text" name="player1" required>
+        <label>Couleur :</label>
+        <select name="color1" required>
+            <option value="red">Rouge</option>
+            <option value="yellow">Jaune</option>
+        </select>
+
+        <label>Joueur 2 :</label>
+        <input type="text" name="player2" required>
+        <label>Couleur :</label>
+        <select name="color2" required>
+            <option value="red">Rouge</option>
+            <option value="yellow">Jaune</option>
+        </select>
+
+        <button type="submit">Lancer la partie</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Partie en cours</title>
+</head>
+<body>
+    <h1>🎮 Partie en cours</h1>
+
+    <!-- Affichage du tour ou du résultat -->
+    {{if .Winner}}
+        <p class="message">{{.Message}}</p>
+    {{else if .IsDraw}}
+        <p class="message">{{.Message}}</p>
+    {{else}}
+        <p class="turn">
+            Tour de :
+            {{if eq .Turn .Color1}}<strong>{{.Player1}}</strong>{{else}}<strong>{{.Player2}}</strong>{{end}}
+            ({{.Turn}})
+        </p>
+    {{end}}
+
+    <!-- Boutons colonnes -->
+    {{if or .Winner .IsDraw}}
+        <!-- Partie terminée : pas de boutons -->
+    {{else}}
+    <form method="GET" action="/game/play/traitement" class="columns">
+        {{range $i, $_ := index .Grid 0}}
+        <button type="submit" name="col" value="{{$i}}">⬇️</button>
+        {{end}}
+    </form>
+    {{end}}
+
+    <!-- Grille du jeu -->
+    <table>
+        {{range .Grid}}
+        <tr>
+            {{range .}}
+            <td><div class="{{.}}"></div></td>
+            {{end}}
+        </tr>
+        {{end}}
+    </table>
+
+    <!-- Actions -->
+    <div class="actions">
+        <form method="GET" action="/reset">
+            <button type="submit">🔄 Nouvelle partie</button>
+        </form>
+        <form method="GET" action="/">
+            <button type="submit">🏠 Accueil</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/statics/style.css">
+    <title>Scoreboard Power'4</title>
+</head>
+<body>
+    <h1>📊 Historique des parties</h1>
+
+    <!-- Navigation -->
+    <div class="actions" style="margin-bottom: 14px;">
+        <form method="GET" action="/">
+            <button type="submit">🏠 Accueil</button>
+        </form>
+        <form method="GET" action="/game/play">
+            <button type="submit">🎮 Revenir au jeu</button>
+        </form>
+    </div>
+
+    {{if .}}
+    <table class="scoreboard">
+        <thead>
+            <tr>
+                <th>Joueur 1</th>
+                <th>Joueur 2</th>
+                <th>Résultat</th>
+                <th>Date</th>
+                <th>Nombre de tours</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.Player1}}</td>
+                <td>{{.Player2}}</td>
+                <td>{{.Winner}}</td>
+                <td>{{.Date}}</td>
+                <td>{{.Turns}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+    {{else}}
+        <p>Aucune partie enregistrée pour le moment.</p>
+    {{end}}
+</body>
+</html>
